@@ -1,0 +1,30 @@
+
+<div class="content-index">
+    <header>
+        <div class="media">
+            <div class="bd">
+                <h1><%= course.fullname %></h1>
+                <p><%= course.summary %></p>
+            </div>
+        </div>
+    </header>
+
+	<h2><%= MM.lang.s("pluginforumsname", "forums") %></h2>
+	<ul class="nav nav-v">
+		<% _.each(forums, function(forum) { %>
+		<li class="nav-item media">
+			<div class="content-name">
+					<a href="#course/forums/<%= course.courseid %>/<%= encodeURIComponent(forum.name) %>/discussions/<%= forum.id %>">
+					<div class="img">
+						<img src="img/mod/forum.png" alt="img">
+					</div>
+					<div class="bd">
+						<h3><%= forum.name %></h3>
+					</div>
+				</a>
+			</div>
+		</li>
+		<% }); %>
+	</ul>
+
+</div>

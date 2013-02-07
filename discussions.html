@@ -1,0 +1,28 @@
+
+<div class="content-index">
+    <header>
+        <div class="media">
+            <div class="bd">
+                <h1><%= course.fullname %></h1>
+                <p><%= course.summary %></p>
+            </div>
+        </div>
+    </header>
+
+	<h2><%= forumName %></h2>
+	
+	<% if (discussions.length > 0) { %>
+	<ul class="nav nav-v">
+		<% _.each(discussions, function(discussion) { %>
+		<li class="nav-item media">
+			<a href="#course/forums/<%= course.courseid %>/<%=  encodeURIComponent(forumName) %>/discussions/<%= forumId %>/posts/<%= discussion.id %>">
+					<h3><%= discussion.subject %></h3>
+					<i><%= discussion.firstuserfullname %></i> - <%= new Date(discussion.timemodified * 1000).toLocaleString() %>
+			</a>
+		</li>
+		<% }); %>
+	</ul>
+	<% } else { %>
+		<%= MM.lang.s("nomessages", "forums") %>
+	<% } %>
+</div>
